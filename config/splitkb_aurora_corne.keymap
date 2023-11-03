@@ -2,46 +2,129 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
-#define SYMBOLS 1
+#define NONE       &none
 
-#define NONE &none
+#define DEFAULT 0
+#define SYMBOLS 1
+#define NUMBERS 2
+
+#define mo_smbls   &mo SYMBOLS
+#define mo_num &mo NUMBERS
+
+#define a &kp A
+#define b &kp B
+#define c &kp C
+#define d &kp D
+#define e &kp E
+#define f &kp F
+#define g &kp G
+#define h &kp H
+#define i &kp I
+#define j &kp J
+#define k &kp K
+#define l &kp L
+#define m &kp M
+#define n &kp N
+#define o &kp O
+#define p &kp P
+#define q &kp Q
+#define r &kp R
+#define s &kp S
+#define t &kp T
+#define u &kp U
+#define v &kp V
+#define w &kp W
+#define x &kp X
+#define y &kp Y
+#define z &kp Z
+
+#define tab     &kp TAB
+#define bksp    &kp BACKSPACE
+#define lshift  &kp LSHIFT
+#define enter   &kp ENTER
+#define lctrl   &kp LCTRL
+#define comma   &kp COMMA
+#define dot     &kp DOT
+#define lalt    &kp LEFT_ALT
+#define space   &kp SPACE
+#define exklmrk &kp EXCLAMATION
+#define at      &kp AT_SIGN
+#define hash    &kp HASH
+#define dollar  &kp DOLLAR
+#define percent &kp PERCENT
+#define and     &kp AMPERSAND
+#define fslash  &kp FSLH
+#define plus    &kp PLUS
+#define caret   &kp CARET
+#define lparen  &kp LEFT_PARENTHESIS
+#define rparen  &kp RIGHT_PARENTHESIS
+#define equal   &kp EQUAL
+#define qmark   &kp QUESTION
+#define grave   &kp GRAVE
+#define dquote  &kp DOUBLE_QUOTES
+#define pipe    &kp PIPE
+#define lbrckt  &kp LEFT_BRACKET
+#define rbrckt  &kp RIGHT_BRACKET
+#define star    &kp ASTERISK
+
+#define n0      &kp KP_NUMBER_0
+#define n1      &kp KP_NUMBER_1
+#define n2      &kp KP_NUMBER_2
+#define n3      &kp KP_NUMBER_3
+#define n4      &kp KP_NUMBER_4
+#define n5      &kp KP_NUMBER_5
+#define n6      &kp KP_NUMBER_6
+#define n7      &kp KP_NUMBER_7
+#define n8      &kp KP_NUMBER_8
+#define n9      &kp KP_NUMBER_9
 
 / {
     keymap {
         compatible = "zmk,keymap";
+        default {
+            bindings =
+            <
+            
+                tab        q     w     e     r     t           y     u     i      o    p       bksp           
 
-    default {
-      bindings =
-        <
-        // #---------|-----|-----|------------|-----------|-----------------#----------|-----|-------------|-----|-----------------|--------------#
+                lshift     a     s     d     f     g           h     j     k      l    NONE    enter
 
-            &kp TAB   &kp Q &kp W &kp E &kp R       &kp T                    &kp Y      &kp U &kp I         &kp O &kp P      &kp BSPC
+                lctrl      z     x     c     v     b           n     m     comma  dot  NONE    NONE
 
-            &kp LSHFT &kp A &kp S &kp D &kp F       &kp G                    &kp H      &kp J &kp K         &kp L &kp RSHFT  &kp RET
-
-            &kp LCTRL &kp Z &kp X &kp C &kp V       &kp B                    &kp N      &kp M &kp COMMA   &kp DOT  NONE   NONE
-
-                     &kp LEFT_ALT      &kp SPACE   &mo SYMBOLS              &kp V      &kp V     &kp V
-
-        // #---------|-----|-----|------------|-----------|-----------------#----------|-----|-------------|-----|-----------------|--------------#
-        >;
+                               lalt  space  mo_smbls           NONE  mo_num  NONE
+               
+            >;
         };
 
-            symbols {
-      bindings =
-        <
-        // #---------|-----|-----|------------|-----------|-----------------#----------|-----|-------------|-----|-----------------|--------------#
+        symbols {
+            bindings =
+            <
 
-            &kp EXCLAMATION &kp AT_SIGN &kp HASH       &kp DOLLAR &kp PERCENT   &kp CARET    &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS   &kp EQUAL         &kp QUESTION &kp GRAVE
+                exklmrk   dquote  hash    dollar    percent    and         fslash    lparen   rparen   equal    qmark    caret
 
-            NONE    NONE        NONE  NONE   NONE  NONE NONE       NONE        NONE NONE  NONE     NONE
+                NONE      at      NONE    NONE      NONE       NONE        pipe      lbrckt   rbrckt   NONE     plus     star
 
-            NONE           NONE       NONE          NONE       NONE      NONE    NONE     NONE     NONE        NONE           NONE     NONE
+                NONE      NONE    NONE    NONE      NONE       NONE        NONE      NONE     NONE     NONE     NONE     NONE
 
-                                                       NONE      NONE         NONE         NONE             NONE             NONE
+                                          NONE      NONE       NONE        NONE      NONE     NONE
 
-        // #---------|-----|-----|------------|-----------|-----------------#----------|-----|-------------|-----|-----------------|--------------#
-        >;
+            >;
+        };
+
+        numbers {
+            bindings =
+            <
+
+                NONE   NONE   NONE   NONE   NONE   NONE        n7      n8      n9   NONE   NONE   NONE
+
+                NONE   NONE   NONE   NONE   NONE   NONE        n4      n5      n6   NONE   NONE   NONE
+
+                NONE   NONE   NONE   NONE   NONE   NONE        n1      n2      n3   NONE   NONE   NONE     
+
+                                    NONE   NONE    NONE        n0      NONE    NONE
+
+            >;
+        };
     };
-    };
+
 };

@@ -9,6 +9,10 @@ My Aurora Corne Split KB
 4. Run the command below (replace absolute path, shall point to this repo `zmk-config/config`). Also choose between left/right.  
    `west build --pristine -b nice_nano_v2 -- -DSHIELD=splitkb_aurora_corne_<left/right> -DZMK_CONFIG="<ABSOLUTE-PATH>/zmk-config/config"`
 
+I for example run the following command since I have an nice!view on the left half.  
+`west build --pristine -b nice_nano_v2 -- -DSHIELD="splitkb_aurora_corne_left nice_view_adapter nice_view" -DZMK_CONFIG="<ABSOLUTE-PATH>/zmk-config/config"`  
+And then `...corne_right` on the right counterpart.
+
 ## Encountered issues
 
 Not renaming the `.keymap` & `.conf` files. Results in the "default" keymap being written.  
