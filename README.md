@@ -6,12 +6,29 @@ My Aurora Corne Split KB
 1. Clone repo.
 2. Setup ZMK toolchain
 3. cd into zmk repo (clone first) `zmk/app`
-4. Run the command below (replace absolute path, shall point to this repo `zmk-config/config`). Also choose between left/right.  
+
+
+## Build configuration
+
+Run the command below (replace absolute path, shall point to this repo `zmk-config/config`). Also choose between left/right.  
    `west build --pristine -b nice_nano_v2 -- -DSHIELD=splitkb_aurora_corne_<left/right> -DZMK_CONFIG="<ABSOLUTE-PATH>/zmk-config/config"`
 
 I for example run the following command since I have an nice!view on the left half.  
 `west build --pristine -b nice_nano_v2 -- -DSHIELD="splitkb_aurora_corne_left nice_view_adapter nice_view" -DZMK_CONFIG="<ABSOLUTE-PATH>/zmk-config/config"`  
-And then `...corne_right` on the right counterpart.
+And then `...corne_right` on the right counterpart.  
+
+## Layer, Layout and though
+
+### **1 - _default_**
+Using the default qwerty layout; nothing special more then being able to move to the second and third layer.
+
+### **2 - _symbols_**
+This layer is built upon the "default" qwerty layout when it comes to using special characters.   
+However, the second-most used characters is positioned one row lower.  
+For example double quotes are used more often than the `@` charater. Therefore I decided to place it on the second row.
+
+### **3 - _numbers_**
+This layer is only used to act as a numpad.
 
 ## Encountered issues
 
