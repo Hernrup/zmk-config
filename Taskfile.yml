@@ -1,0 +1,28 @@
+version: '3'
+
+tasks:
+  docker:
+    cmds:
+      - docker build -t zmk .
+    silent: false
+
+  build:
+    deps: [docker]
+    cmds:
+      - docker run -it --device /dev/bus/usb/ -v ./config:/app -v ./:/src zmk bash /src/build.sh
+
+  shell:
+    cmds:
+      - docker run -it --device /dev/bus/usb/ -v ./config:/app -v ./:/src -v /media:/media zmk bash
+
+  flash-left:
+    cmds:
+      - docker run -it --device /dev/bus/usb/ -v ./config:/app -v ./:/src -v /media:/media zmk west flash -d /src/build/left
+
+  flash-right:
+    cmds:
+      - docker run -it --device /dev/bus/usb/ -v ./config:/app -v ./:/src -v /media:/media zmk west flash -d /src/build/right
+
+  editor:
+    cmds:
+      - /usr/bin/xdg-open https://nickcoutsos.github.io/keymap-editor > /dev/null
